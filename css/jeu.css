@@ -1,0 +1,517 @@
+body {
+    background-color: black;
+    background-image: url(../img/fight.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    margin: 0;
+  }
+
+  div#container-cartes{
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      margin-left: 5%;
+      
+  }
+
+  
+
+  div.Partie-En-Cours{
+    position: fixed;
+    width: 100%;
+    height: 525px;
+    display: flex;
+    justify-content: center;
+    top: 17%;
+  }
+  div#board-adv{
+    position: fixed;
+    height: 27%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+
+  div#mon-board{
+    top: 45%;
+    position: fixed;
+    height: 27%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+p.carte-description{
+    text-align: center;
+    width: 75%;
+    height: 40%;
+    position:absolute;
+    top: 50%;
+    left: 0;
+    color: rgb(255, 255, 255);
+    /* font-size: 15px; */
+    margin: 0;
+    padding-left:12% ;
+    padding-right:10% ;
+    background-color: rgb(119, 119, 119);
+}
+
+div.carte{
+    height: 95%;
+    width: 95%;
+    position: relative;
+    
+}
+
+.selected{
+  border: 2px solid #fff;
+  box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #FFD700,
+              0 0 0.8rem #FFD700,
+              0 0 2.8rem #FFD700,
+              inset 0 0 1.3rem #FFD700;
+}
+
+.valid_card:hover{
+  border: 2px solid #fff;
+  box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #05FF50,
+              0 0 0.8rem #05FF50,
+              0 0 2.8rem #05FF50,
+              inset 0 0 1.3rem #05FF50;
+}
+
+.unvalid_card:hover{
+  border: 2px solid #fff;
+  box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem rgb(252, 18, 18),
+              0 0 0.8rem rgb(252, 18, 18),
+              0 0 2.8rem rgb(252, 18, 18),
+              inset 0 0 1.3rem rgb(252, 18, 18);
+}
+
+img.carte-background{
+    content: url(../img/yi.jpg);
+    max-width:90%;
+    max-height:80%;
+    margin-left: 10px;
+    margin-top: 10px;
+    position: absolute;
+}
+
+img.carte-border{
+    content: url(../img/card_border.png);
+    position: relative;
+    
+    max-width:100%;
+    max-height:100%;
+}
+
+p.carte-mana{
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    position:absolute;
+    top: 0;
+    left: 0;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    background-color: rgb(205, 182, 50);
+    border-radius: 50%;
+}
+
+p.carte-degats{
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    position:absolute;
+    bottom: 7%;
+    left: 0;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    background-color: rgb(253, 23, 242);
+    border-radius: 40%;
+}
+
+p.carte-vie{
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    position:absolute;
+    bottom: 7%;
+    right: 0;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    background-color: rgb(0, 189, 247);
+    border-radius: 50%;
+}
+
+
+div.Stats-Joueur{
+    display: inline-block;
+    justify-content: center;
+  }
+div.ma-vie{
+    background-image: url(../img/heart.PNG);
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+       
+  }
+
+div.mon-mana{
+    background-image: url(../img/mana.webp);
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: rgb(255, 196, 0);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;    
+    /* padding-left: 20px; */
+    margin-left: 20px;
+  }
+
+p.qte-vie{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    -webkit-text-stroke: 2px black;
+    font-weight: bold;
+    color: #c06060;
+    font-size: 25px;
+    position: absolute;
+    margin: auto;
+    
+}
+
+p.qte-mana, p.qte-mana-adv{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    -webkit-text-stroke: 2px rgb(255, 166, 0);
+    font-weight: bold;
+    color: #000000;
+    font-size: 25px;
+    position: absolute;
+    margin: auto;
+}
+  div.Deck-Adversaire{
+      background-color: rgba(255, 255, 255, 0.349);
+      height: 160px;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      border-bottom: 4px solid rgb(255, 83, 83);
+  }
+
+  .your_turn{
+    box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem #00ff00,
+              0 0 0.8rem #00ff00,
+              0 0 2.8rem #00ff00,
+              inset 0 0 1.3rem #00ff00;
+  }
+.Actions{
+  position: absolute;
+  bottom: 70px;
+  right: 10px;
+}
+
+div.Mon-Deck{
+    position: fixed;
+    background-color: rgba(248, 175, 80, 0.247);
+    width: 100%;
+    height: 250px;
+    margin: 0;
+    bottom: 0;
+    border-top: 4px solid rgb(255, 175, 83);
+    display: flex;
+}
+p.qte-vie-adv{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    -webkit-text-stroke: 2px black;
+    font-weight: bold;
+    color: #c06060;
+    font-size: 25px;
+    /* padding: 45px 0; */
+    position: absolute;
+    margin: auto;
+}
+
+p.qte-mana-adv{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    -webkit-text-stroke: 2px rgb(255, 166, 0);
+    font-weight: bold;
+    color: #000000;
+    font-size: 50px;
+    padding: 0px 20px;
+    position: absolute;
+    margin: auto;
+}
+
+div.Mana-Adversaire{
+    background-image: url(../img/mana.webp);
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: rgb(255, 196, 0);
+    margin-left: 10%;
+    margin-top: 5%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;  
+}
+
+div.Photo-Adversaire{
+    background-image: url(../img/villain.PNG);
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    display:inline-block;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: hsl(0, 100%, 65%);
+    margin-left: 5%;
+    z-index:2;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+}
+
+div.Infos-Adversaire{
+    width: 50%;
+    height: 80%;
+    padding: 10px;
+    display:flex;
+}
+
+div.div-Vie-Adversaire{
+    background-image: url(../img/heart.PNG);
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 150px;
+    width: 150px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;  
+    padding: 10px;
+}
+
+div#Cartes-Adversaire{
+    width: 27%;
+    height: 80%;
+    padding: 15px;
+    display:inline-block;
+}
+div.Cartes-restantes{
+    display: inline-block;
+    background-image: url(../img/yellow_card.PNG);
+    height: 90px;
+    width: 55px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;  
+    margin-left: 20px;
+    margin-top: 2px;
+}
+div.Cartes-restantes-adv{
+    display: inline-block;
+    background-image: url(../img/blue_card.PNG);
+    height: 60px;
+    width: 8%;
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+
+.Temps-restant{
+    font-size: 50px;
+    background-color: #FFD700;
+    border: 1px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+
+}
+
+div.boutons{
+    display: inline;
+    width: 6%;
+}
+
+.bouton_hero_true{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 100;
+  padding: 15px;
+  background-color: #3df6bf;
+  -webkit-box-shadow: 1px 1px 20px 0 #00a108;
+  -moz-box-shadow: 1px 1px 20px 0 #00a108;
+  box-shadow: 1px 1px 20px 0 #00a108;
+  text-decoration: none;
+  display: flex;
+  cursor: pointer;
+  text-align: center;
+}
+
+.bouton_hero, .bouton_skip_tour, .bouton_chat, .bouton_abandon {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 100;
+    padding: 15px;
+    background-color: #F63D3D;
+    -webkit-box-shadow: 1px 1px 20px 0 #DD380D;
+    -moz-box-shadow: 1px 1px 20px 0 #DD380D;
+    box-shadow: 1px 1px 20px 0 #DD380D;
+    text-decoration: none;
+    display: flex;
+    cursor: pointer;
+    text-align: center;
+ }
+ .stealth{
+  border : 3px solid whitesmoke;
+
+  box-shadow: 0 0 .2rem #fff,
+              0 0 .2rem #fff,
+              0 0 2rem whitesmoke,
+              0 0 0.8rem whitesmoke,
+              0 0 2.8rem whitesmoke,
+              inset 0 0 1.3rem whitesmoke;
+ }
+
+ .taunt{
+  border : 3px solid darkslategray;
+
+  box-shadow: 0 0 .2rem darkslategray,
+              0 0 .2rem darkslategray,
+              0 0 2rem darkslategray,
+              0 0 0.8rem darkslategray,
+              0 0 2.8rem darkslategray,
+              inset 0 0 1.3rem darkslategray;
+ }
+ 
+ .bouton_hero:hover,.bouton_skip_tour:hover, .bouton_chat:hover, .bouton_abandon:hover {
+    background: #FF9B00;
+    /* border: solid #FFAE00 1px; */
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+ }
+
+ .bouton_hero_true:hover{
+  background: #00ccff;
+  /* border: solid #FFAE00 1px; */
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  text-decoration: none;
+ }
+
+ 
+
+ @keyframes grow-and-fade {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) translatez(0);
+  }
+  40% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1) translatez(0);
+  }
+}
+@keyframes pulsing-fade {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0;
+  }
+}
+.triangle {
+  animation: grow-and-fade 2000ms linear infinite;
+  height: 150px;
+  left: 0;
+  opacity: 0;
+  width: 150px;
+  position: absolute;
+  top: 0%;
+  transform: translatez(0);
+  transform-origin: 50% 60%;
+  will-change: opacity, transform;
+}
+.triangle-wrapper {
+  height: 150px;
+  position: absolute;
+  width: 150px;
+  top: 35%;
+  left: 45%;
+}
+.triangle-loading {
+  animation: pulsing-fade 2000ms ease infinite;
+  color: rgb(255, 0, 64);
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 200px;
+  font-weight: bolder;
+  left: 50%;
+  letter-spacing: 8px;
+  margin-left: 4px;
+  margin-top: 10px;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  transform: translate3d(-50%, -50%, 0);
+  text-transform: uppercase;
+}
